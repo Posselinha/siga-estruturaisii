@@ -26,29 +26,20 @@ public class Main {
         }
         
         System.out.println();
-        System.out.println("2) Estrutura curricular percorrida com instanceof");
-        Modulo curso = new Modulo("DSM - Desenvolvimento de Software Multiplataforma");
+        Modulo curso = new Modulo("DSM — Desenvolvimento de Software Multiplataforma");
 
-        Modulo primeiro = new Modulo("1o semestre");
-        primeiro.adicionar(new Disciplina("Algoritmos", 80));
-        primeiro.adicionar(new Disciplina("Banco de Dados I", 60));
+        Modulo primeiroSemestre = new Modulo("1º semestre");
+        primeiroSemestre.adicionar(new Disciplina("Algoritmos", 80));
+        primeiroSemestre.adicionar(new Disciplina("Banco de Dados I", 60));
 
-        Modulo segundo = new Modulo("2o semestre");
-        segundo.adicionar(new Disciplina("Tecnicas de Programacao II", 80));
-        segundo.adicionar(new Disciplina("Desenvolvimento Web II", 80));
+        Modulo segundoSemestre = new Modulo("2º semestre");
+        segundoSemestre.adicionar(new Disciplina("Técnicas de Programação II", 80));
 
-        curso.adicionar(primeiro);
-        curso.adicionar(segundo);
-        curso.adicionar(new Disciplina("Projeto Integrador", 40));
+        curso.adicionar(primeiroSemestre);
+        curso.adicionar(segundoSemestre);
+        curso.adicionar(new Disciplina("Projeto Integrador", 40));   // folha direta
 
-        GradeCurricular grade = new GradeCurricular();
-        grade.imprimir(curso, 1);
-        System.out.println("   Carga total: " + grade.calcularCarga(curso) + "h");
-        System.out.println("   >> DESLIZE 3: a travessia com instanceof aparece DUAS vezes,");
-        System.out.println("      uma em calcularCarga e outra em imprimir. Uma terceira");
-        System.out.println("      operacao exigiria uma terceira copia.");
-
-        System.out.println();
-        System.out.println("Sua tarefa: ver o README.md e a ficha de atividade pratica.");
+        System.out.println("Carga total: " + curso.getCargaHoraria() + "h");
+        curso.imprimir(0);
     }
 }
