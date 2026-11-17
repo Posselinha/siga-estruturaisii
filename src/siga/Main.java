@@ -35,6 +35,11 @@ public class Main {
         Modulo segundoSemestre = new Modulo("2º semestre");
         segundoSemestre.adicionar(new Disciplina("Técnicas de Programação II", 80));
 
+        Modulo trilha = new Modulo("Trilha de Especializacao em Desenvolvimento Web");
+        trilha.adicionar(new Disciplina("Desenvolvimento de APIs", 60));
+        trilha.adicionar(new Disciplina("Frameworks Web", 40));
+        segundoSemestre.adicionar(trilha);
+
         curso.adicionar(primeiroSemestre);
         curso.adicionar(segundoSemestre);
         curso.adicionar(new Disciplina("Projeto Integrador", 40));   // folha direta
