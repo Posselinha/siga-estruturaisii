@@ -13,22 +13,18 @@ public class Main {
         System.out.println("1) Relatorios: uma subclasse por combinacao");
         Relatorio[] variantes = {
             new RelatorioDeAlunos(),
-            new RelatorioComCabecalho(),
-            new RelatorioComNumeracao(),
-            new RelatorioComCabecalhoENumeracao(),
-            new RelatorioComCabecalhoENumeracaoEMarcaDagua()
+            new ComMarcaDagua(new RelatorioDeAlunos()),
+            new ComMarcaDagua(new ComCabecalho( new RelatorioDeAlunos())),
+            new ComNumeracao(new ComMarcaDagua( new RelatorioDeAlunos()))
         };
+
         for (Relatorio r : variantes) {
             System.out.println("   --- " + r.getClass().getSimpleName() + " ---");
             for (String linha : r.gerar().split("\n")) {
                 System.out.println("   " + linha);
             }
         }
-        System.out.println("   >> DESLIZE 1: sao 4 subclasses para 3 caracteristicas opcionais,");
-        System.out.println("      e faltam as combinacoes que ninguem pediu ainda. Com 3 opcionais");
-        System.out.println("      independentes seriam 8 classes; com 4, seriam 16.");
-        System.out.println("   >> DESLIZE 2: o texto do cabecalho esta escrito em TRES classes.");
-
+        
         System.out.println();
         System.out.println("2) Estrutura curricular percorrida com instanceof");
         Modulo curso = new Modulo("DSM - Desenvolvimento de Software Multiplataforma");
